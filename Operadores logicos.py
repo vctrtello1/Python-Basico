@@ -17,8 +17,12 @@ else:
 print("Asignaturas optativas")
 print("Informatica grafica, Pruebas de software, Usabilidad y accesibilidad")
 asignatura = input("Escribe la asignatura que vas a cursar: ")
+# Python es sensible a las mayusculas y minusculas
+# podemos usar lower y upper
 if asignatura in (
     "Informatica grafica", "Pruebas de software",
     "Usabilidad y accesibilidad"
 ):
-    print("Asignatura asignada")
+    print("Asignatura asignada: " + asignatura)
+else:
+    print("La asignatura solicitada no existe")
