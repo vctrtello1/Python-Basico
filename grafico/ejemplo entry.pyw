@@ -35,13 +35,14 @@ passwordLabel = Label(miFrame, text="Password: ").grid(
 comentariosLabel = Label(miFrame, text="Comentarios: ").grid(
     row=4, column=0, sticky="e", pady=10, padx=10
     )
-textoComentario = Text(miFrame, width=25, height=6).grid(
+textoComentario = Text(miFrame, width=25, height=6)
+# se separa el grid para que poder instanciar los construimos
+# componentes
+textoComentario.grid(
     row=4, column=1, sticky="e", pady=10, padx=10
     )
-# textoComentario.pack()
-textoComentario.config(fg="red", bg="blue")
 # forma en la construimos y asignamos el scrollbar a la caja de texto
 # a el frame
-# scrollTextoComentarios = Scrollbar(miFrame, command=textoComentario.yview)
-# scrollTextoComentarios.grid(row=4, column=2)
+scrollTextoComentarios = Scrollbar(miFrame, command=textoComentario.yview)
+scrollTextoComentarios.grid(row=4, column=2)
 root.mainloop()
