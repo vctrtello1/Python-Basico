@@ -1,7 +1,9 @@
-from tkinter import Tk, Frame, Entry, Label, Text, Scrollbar
+from tkinter import Tk, Frame, Entry, Label, Text, Scrollbar, Button, StringVar
+
 root = Tk()
 miFrame = Frame(root, width=500, height=600)
 miFrame.pack()
+miNombre = StringVar()
 miFrame.config(bd=20)
 miFrame.config(relief="sunken")
 # cuadroTexto = Entry(miFrame).place(x=10, y=20)
@@ -11,7 +13,8 @@ miFrame.config(relief="sunken")
 cuadroTexto = Entry(miFrame).grid(
     row=0, column=1, pady=10, padx=10
     )
-nombreLabel = Label(miFrame, text="Nombre: ").grid(
+# propieda para cambiar el nombre
+nombreLabel = Label(miFrame, textvariable=miNombre).grid(
     row=0, column=0, sticky="e", pady=10, padx=10
     )
 cuadroTextoApellido = Entry(miFrame).grid(
@@ -44,5 +47,17 @@ textoComentario.grid(
 # forma en la construimos y asignamos el scrollbar a la caja de texto
 # a el frame
 scrollTextoComentarios = Scrollbar(miFrame, command=textoComentario.yview)
-scrollTextoComentarios.grid(row=4, column=2)
+# con la propiedad snew se adapta al text en la propieda sticky
+scrollTextoComentarios.grid(row=4, column=2, sticky="snew")
+# asiganamos de manera vertical el scrollbar
+textoComentario.config(yscrollcommand=scrollTextoComentarios.set)
+# agregar un boton
+
+
+def codigoBoton():
+    miNombre.set("Hugo")
+
+
+botonEnvio = Button(root, text="Enviar", command=codigoBoton)
+botonEnvio.pack()
 root.mainloop()
