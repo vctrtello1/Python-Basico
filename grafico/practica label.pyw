@@ -10,7 +10,7 @@ miLabel.place(x=10, y=10)
 # colocar de manera directa el Label en caso de que no se use
 Label(miFrame, text="Segunda etiqueta", fg="red").place(x=10, y=30)
 # uso de imagenes
-miImagen = PhotoImage(file="lela2.png")
+miImagen = PhotoImage(file="jynx.png")
 # label con etiqueta
 Label(miFrame, image=miImagen, fg="red").place(x=10, y=50)
 root.mainloop()
