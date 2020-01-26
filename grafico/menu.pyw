@@ -1,0 +1,13 @@
+from tkinter import Tk, Frame, Menu
+root = Tk()
+miFrame = Frame(root, width=500, height=600)
+miFrame.pack()
+miFrame.config(bd=20)
+barraMenu = Menu(miFrame)
+miFrame.config(menu=barraMenu)
+archivoMenu = Menu(barraMenu)
+archivoEdicion = Menu(barraMenu)
+archivoHerramientas = Menu(barraMenu)
+archivoHerramientas = Menu(barraMenu)
+archivoAyuda = Menu(barraMenu)
+root.mainloop()
