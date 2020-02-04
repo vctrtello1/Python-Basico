@@ -1,4 +1,4 @@
-from tkinter import Tk, Menu, Frame, Entry, Text, Scrollbar
+from tkinter import Tk, Menu, Frame, Entry, Text, Scrollbar, Label, Button
 # import sqlite3
 root = Tk()
 barraMenu = Menu(root)
@@ -34,11 +34,47 @@ cuadroNombre = Entry(miFrame).grid(row=1, column=1, padx=10, pady=10)
 cuadroPass = Entry(miFrame).grid(row=2, column=1, padx=10, pady=10)
 cuadroApellido = Entry(miFrame).grid(row=3, column=1, padx=10, pady=10)
 cuadroDireccion = Entry(miFrame).grid(row=4, column=1, padx=10, pady=10)
+# es necesario separar el grid en otra linea para poder realizar
+# la operacion
 textoComentario = Text(
     miFrame, width=16, height=5
     )
 textoComentario.grid(row=5, column=1, padx=10, pady=10)
 scrollVert = Scrollbar(miFrame, command=textoComentario.yview)
-scrollVert.grid(row=5, column=2)
+scrollVert.grid(row=5, column=2, sticky="nsew")
+textoComentario.config(yscrollcommand=scrollVert.set)
 
+idLabel = Label(miFrame, text="Id:").grid(
+    row=0, column=0, sticky="e", padx=10, pady=10
+    )
+nombreLabel = Label(miFrame, text="Nombre:").grid(
+    row=1, column=0, sticky="e", padx=10, pady=10
+    )
+passLabel = Label(miFrame, text="Password:").grid(
+    row=2, column=0, sticky="e", padx=10, pady=10
+    )
+apellidoLabel = Label(miFrame, text="Apellido:").grid(
+    row=3, column=0, sticky="e", padx=10, pady=10
+    )
+direccionLabel = Label(miFrame, text="Direccion:").grid(
+    row=4, column=0, sticky="e", padx=10, pady=10
+    )
+comentariosLabel = Label(miFrame, text="Comentarios:").grid(
+    row=5, column=0, sticky="e", padx=10, pady=10
+    )
+# frame para los botones
+miFrameBotones = Frame(root)
+miFrameBotones.pack()
+botonCrear = Button(miFrame, text="Create").grid(
+    row=1, column=0, sticky="e", padx=10, pady=10
+    )
+botonLeer = Button(miFrame, text="Read").grid(
+    row=1, column=1, sticky="e", padx=10, pady=10
+    )
+botonActualizar = Button(miFrame, text="Update").grid(
+    row=1, column=2, sticky="e", padx=10, pady=10
+    )
+botonBorrar = Button(miFrame, text="Delete").grid(
+    row=1, column=3, sticky="e", padx=10, pady=10
+    )
 root.mainloop()
