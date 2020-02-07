@@ -65,16 +65,16 @@ comentariosLabel = Label(miFrame, text="Comentarios:").grid(
 # frame para los botones
 miFrameBotones = Frame(root)
 miFrameBotones.pack()
-botonCrear = Button(miFrame, text="Create").grid(
+botonCrear = Button(miFrameBotones, text="Create").grid(
     row=1, column=0, sticky="e", padx=10, pady=10
     )
-botonLeer = Button(miFrame, text="Read").grid(
+botonLeer = Button(miFrameBotones, text="Read").grid(
     row=1, column=1, sticky="e", padx=10, pady=10
     )
-botonActualizar = Button(miFrame, text="Update").grid(
+botonActualizar = Button(miFrameBotones, text="Update").grid(
     row=1, column=2, sticky="e", padx=10, pady=10
     )
-botonBorrar = Button(miFrame, text="Delete").grid(
+botonBorrar = Button(miFrameBotones, text="Delete").grid(
     row=1, column=3, sticky="e", padx=10, pady=10
     )
 root.mainloop()
