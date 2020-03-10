@@ -1,5 +1,23 @@
 from tkinter import Tk, Menu, Frame, Entry, Text, Scrollbar, Label, Button
-# import sqlite3
+from tkinter import messagebox
+import sqlite3
+
+
+def conexionBaseDeDatos():
+    miConexion = sqlite3.connect("Usuarios")
+    miCursor = miConexion.cursor()
+    miCursor.execute('''
+        create table DatosUsuarios(
+        id integer primary key autoincrement,
+        nombreUsuario varchar(50),
+        password varchar(50),
+        apellido varchar(60),
+        direccion varchar(60),
+        comentarios varchar(200))
+        ''')
+    messagebox.showinfo("Base de datos", "Base de datos creada con exito")
+
+
 root = Tk()
 barraMenu = Menu(root)
 root.config(menu=barraMenu, width=300, height=300)
